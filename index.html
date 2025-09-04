@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>بردیا آقایی | صفحه شخصی</title>
+<meta name="description" content="بردیا آقایی: متولد ۱۳۸۷/۱۰/۱۵ در تهران. شناگر و بدنساز حرفه‌ای." />
+
+<!-- Open Graph -->
+<meta property="og:title" content="بردیا آقایی | صفحه شخصی" />
+<meta property="og:description" content="شناگر و بدنساز حرفه‌ای | رکوردهای شنا + گالری تمرینات" />
+<meta property="og:image" content="cover.jpg" />
+<meta property="og:type" content="website" />
+
+<!-- فونت -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#000;
+    --card:#1c1c1c;
+    --text:#f5f5f5;
+    --muted:#a0a0a0;
+    --line:#333333;
+    --radius:20px;
+    --shadow:0 10px 30px rgba(0,0,0,.7);
+    --accent:#ff1a1a;
+    --accent-light:#990000;
+    --highlight:rgba(255,0,0,0.3);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;}
+  body{
+    background:var(--bg);
+    color:var(--text); 
+    font-family:"Vazirmatn", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+    line-height:1.8; letter-spacing:.2px;
+    overflow-x:hidden;
+  }
+  .container{max-width:1000px;margin:auto;padding:24px;}
+
+  /* Header */
+  header{
+    background:linear-gradient(135deg,var(--accent),var(--accent-light));
+    box-shadow:0 6px 20px rgba(0,0,0,0.5);
+    position:relative;
+  }
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:18px 0;}
+  .brand{display:flex; align-items:center; gap:12px; font-weight:800; font-size:24px; color:#fff;}
+  .logo{
+    inline-size:48px; block-size:48px; border-radius:12px; display:grid; place-items:center;
+    background:#fff; color:var(--bg); font-weight:900; font-size:20px;
+  }
+
+  /* دکمه موزیک */
+  .music-btn{
+    background:transparent;
+    border:2px solid #fff;
+    color:#fff;
+    padding:8px 16px;
+    border-radius:50px;
+    cursor:pointer;
+    font-size:14px;
+    transition:.3s;
+  }
+  .music-btn:hover{
+    background:var(--accent);
+    border-color:var(--accent);
+    box-shadow:0 0 20px rgba(255,0,0,.7);
+  }
+
+  /* Panel */
+  .panel{
+    background:var(--card);
+    border:1px solid var(--line); border-radius:var(--radius); padding:32px;
+    box-shadow:var(--shadow); margin-top:30px; transition:.5s ease;
+    opacity:0; transform:translateY(20px);
+    animation:fadeInUp 0.8s forwards;
+  }
+  .panel:hover{
+    transform:translateY(-5px);
+    box-shadow:0 14px 40px rgba(255,0,0,.75);
+  }
+  @keyframes fadeInUp{
+    to{opacity:1; transform:translateY(0);}
+  }
+  .title{
+    font-weight:900; font-size:36px; margin-bottom:12px; text-align:center;
+    background:linear-gradient(90deg,var(--accent),var(--accent-light));
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  }
+  .subtitle{text-align:center; color:var(--muted); font-size:18px; margin-bottom:6px;}
+
+  /* جدول رکوردها */
+  table{
+    width:100%; border-collapse:collapse; margin-top:20px; font-size:15px;
+    animation:fadeInUp 0.8s forwards;
+  }
+  th,td{padding:16px 12px; border-bottom:1px solid var(--line); text-align:center; transition:background .3s;}
+  th{color:var(--accent); font-weight:800; background:rgba(255,255,255,.03);}
+  tr:hover td{background:rgba(255,0,0,0.05);}
+
+  /* گالری عکس */
+  .gallery{
+    display:grid; grid-template-columns:repeat(2, 1fr);
+    gap:16px; margin-top:20px;
+    animation:fadeInUp 0.8s forwards;
+  }
+  .gallery img{
+    width:100%; border-radius:var(--radius);
+    object-fit:cover; aspect-ratio:1/1;
+    box-shadow:0 8px 20px var(--highlight);
+    transition:.4s ease; cursor:pointer;
+  }
+  .gallery img:hover{
+    transform:scale(1.07) rotate(1deg);
+    box-shadow:0 12px 35px rgba(255, 0, 0, 0.6);
+  }
+
+  /* گالری ویدیو */
+  .video-gallery{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:20px;
+  }
+  .video-container{
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:0 10px 50px rgba(255,0,0,.5);
+    transition: transform .3s, box-shadow .3s;
+  }
+  .video-container:hover{
+    transform:scale(1.03);
+    box-shadow:0 15px 60px rgba(255,0,0,.7);
+  }
+  .video-container video{
+    width:100%;
+    display:block;
+  }
+
+  footer{
+    margin-top:36px; border-top:1px solid var(--line); color:var(--muted); padding:18px; text-align:center;
+  }
+
+  /* ریسپانسیو */
+  @media(max-width:600px){
+    .panel{padding:20px;}
+    .title{font-size:28px;}
+    .subtitle{font-size:16px;}
+    th, td{font-size:14px; padding:12px 8px;}
+    .gallery{grid-template-columns:1fr;}
+    .video-gallery{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <span class="brand">
+      <span class="logo">BA</span>
+      <span>بردیا آقایی</span>
+    </span>
+    <button class="music-btn" id="music-toggle">🎵 پخش موزیک</button>
+  </div>
+</header>
+
+<main class="container">
+  <!-- معرفی -->
+  <div class="panel">
+    <h1 class="title">بردیا آقایی</h1>
+    <p class="subtitle">متولد ۱۵ دی ۱۳۸۷ در تهران</p>
+    <p class="subtitle">شناگر و بدنساز حرفه‌ای</p>
+  </div>
+
+  <!-- رکوردهای شنا -->
+  <div class="panel">
+    <h2 style="text-align:center; color:var(--accent); margin-bottom:16px;">رکوردهای شنای من</h2>
+    <table>
+      <thead>
+        <tr><th>رشته</th><th>رکورد</th><th>مسابقه</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>۲۰۰ متر آزاد</td><td>۰۲:۴۰.۹۵</td><td>جام آزادی (رده سنی ۱۵–۱۷ سال)</td></tr>
+        <tr><td>۵۰ متر قورباغه</td><td>۰۰:۴۰.۶۹</td><td>جام آزادی (رده سنی ۱۵–۱۷ سال)</td></tr>
+        <tr><td>۵۰ متر پروانه</td><td>۰۰:۳۳.۴۶</td><td>جام آزادی (رده سنی ۱۵–۱۷ سال)</td></tr>
+        <tr><td>۱۰۰ متر آزاد</td><td>۰۱:۰۹.۸۹</td><td>جام آزادی (رده سنی ۱۵–۱۷ سال)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- گالری تمرین بدنسازی -->
+  <div class="panel">
+    <h2 style="text-align:center; color:var(--accent); margin-bottom:16px;">تمرینات</h2>
+    <div class="gallery">
+      <img src="body1.jpg" alt="بردیا آقایی در حال تمرین بدنسازی" loading="lazy">
+      <img src="body2.jpg" alt="بردیا آقایی در حال تمرین وزنه" loading="lazy">
+      <img src="body3.jpg" alt="تمرین سینه در باشگاه" loading="lazy">
+      <img src="body4.jpg" alt="تمرین پشت بازو در باشگاه" loading="lazy">
+      <img src="body5.jpg" alt="تمرین سرشانه" loading="lazy">
+      <img src="body6.jpg" alt="تمرین پا" loading="lazy">
+      <img src="body7.jpg" alt="تمرین شکم" loading="lazy">
+      <img src="body8.jpg" alt="تمرین جلو بازو" loading="lazy">
+    </div>
+  </div>
+
+  <!-- ویدیوها -->
+  <div class="panel">
+    <h2 style="text-align:center; color:var(--accent); margin-bottom:16px;">ویدیو تمرینات</h2>
+    <div class="video-gallery">
+      <div class="video-container"><video controls poster="video1-poster.jpg"><source src="workout1.mp4" type="video/mp4"></video></div>
+      <div class="video-container"><video controls poster="video2-poster.jpg"><source src="workout2.mp4" type="video/mp4"></video></div>
+      <div class="video-container"><video controls poster="video3-poster.jpg"><source src="workout3.mp4" type="video/mp4"></video></div>
+      <div class="video-container"><video controls poster="video4-poster.jpg"><source src="workout4.mp4" type="video/mp4"></video></div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  © <span id="year"></span> بردیا آقایی
+</footer>
+
+<!-- موزیک -->
+<audio id="bg-music" src="song.mp3" loop></audio>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const music = document.getElementById('bg-music');
+  const btn = document.getElementById('music-toggle');
+  let playing = false;
+
+  btn.addEventListener('click', () => {
+    if (playing) {
+      music.pause();
+      btn.textContent = "🎵 پخش موزیک";
+    } else {
+      music.play();
+      btn.textContent = "⏸ توقف موزیک";
+    }
+    playing = !playing;
+  });
+</script>
+</body>
+</html>
